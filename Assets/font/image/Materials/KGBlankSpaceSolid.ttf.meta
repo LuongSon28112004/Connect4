@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 454f893ffe7a6d74d85f9540b070dc4d
+timeCreated: 1552771400
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: KG Blank Space Solid
+  fontNames:
+  - KG Blank Space Solid
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

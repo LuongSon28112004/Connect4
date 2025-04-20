@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: fc8e5d03b1d3bb54aaa13ad603e332c4
+  - enabled: 1
+    path: Assets/Scenes/Connect4P_P.unity
+    guid: 965c9063c582b284f9f1d9aac3c0e057
+  - enabled: 1
+    path: Assets/Scenes/Connect4P_AI.unity
+    guid: 0953f51c37b2f304da2358ef5b97ad6b
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 875b4e2cd89110549834a83641e28196,
+      type: 2}
+  m_UseUCBPForAssetBundles: 0
