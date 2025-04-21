@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e53fbff2950dd4f4dac4a218e4d1375f
+guid: b819e95cb33e0884d8fa584e199c8889
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5878778470139994923
-    second: Blue Box Button_0
+      213: -9038570843637752655
+    second: bkgamee_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blue Box Button_0
+      name: bkgamee_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 516
-        height: 229
+        width: 320
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b23a8e91fdd959150800000000000000
-      internalID: 5878778470139994923
+      spriteID: 1bcd4c3c4bb809280800000000000000
+      internalID: -9038570843637752655
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Blue Box Button_0: 5878778470139994923
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

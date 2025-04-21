@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Red Polygon Button _0: 1045917315518007476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

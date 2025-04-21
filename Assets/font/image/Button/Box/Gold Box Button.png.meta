@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gold Box Button_0: -3058643670046833771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
