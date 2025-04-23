@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SoundEffectMusic
+  m_EditorClassIdentifier: 
+  m_GroupName: SoundEffectMusic
+  m_GUID: ce77cf6b61bad894a86a23ff2527e4bb
+  m_SerializeEntries:
+  - m_GUID: 60a2c2b5bdb648145b8710bc8ead0e56
+    m_Address: Assets/Sound/turn.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SoundEffect
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3c74eb3ecabf3b344bd58cf16c99f5ac, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 65622e57e8d208a4b950c3e0f1f9df81, type: 2}
+    - {fileID: 11400000, guid: 3525e72bc024ba4408a9942668661b91, type: 2}

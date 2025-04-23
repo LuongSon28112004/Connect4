@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 4a7622ccba368d34fbbf3a70496553ef
   m_currentHash:
     serializedVersion: 2
-    Hash: c9cbe0c69390f7485ac5ca5888bee3e7
+    Hash: 89439f8e1d8d09d05f169e15ffa4ec04
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a498ca3f66c77949ab6470eac9aa702, type: 2}
   - {fileID: 11400000, guid: 4146d057154411c44a469206cccb0d36, type: 2}
   - {fileID: 11400000, guid: 762e38da0c0daeb49827844e07fb80fe, type: 2}
+  - {fileID: 11400000, guid: e591e9c49377d554cba97bb6ef6948d8, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -105,6 +106,7 @@ MonoBehaviour:
     - MusicBackGroundMenu
     - SoundBackGoundMusic
     - MixerController
+    - SoundEffect
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: d8a4375eaba4aed498515a1136191295, type: 2}

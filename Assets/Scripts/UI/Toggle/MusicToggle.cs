@@ -4,7 +4,7 @@ public class MusicToggle : BaseVolumeToggle
 {
     private void Start()
     {
-        toggle.isOn = PlayerPrefs.GetInt(StaticStringUI.AudioString.SFXString.TOGGLE_SFX, 1) == 1;
+        toggle.isOn = PlayerPrefs.GetInt(StaticStringUI.AudioString.MusicString.TOGGLE_MUSIC, 1) == 1;
     }
 
     public override void OnValueChanged(bool value)
@@ -15,7 +15,7 @@ public class MusicToggle : BaseVolumeToggle
             audioMixer.SetFloat(StaticStringUI.AudioString.MusicString.MUSIC_VOLUME, dB);
 
             // Save music volume
-            PlayerPrefs.SetInt(StaticStringUI.AudioString.SFXString.TOGGLE_SFX, value ? 1 : 0);
+            PlayerPrefs.SetInt(StaticStringUI.AudioString.MusicString.TOGGLE_MUSIC, value ? 1 : 0);
             PlayerPrefs.Save();
         }
     }

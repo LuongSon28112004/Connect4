@@ -56,7 +56,7 @@ public class SoundBackGroundMusicManager : SoundManager
     {
         float value = PlayerPrefs.GetFloat(StaticStringUI.AudioString.MusicString.MUSIC_VOLUME, 1);
         float dB = Mathf.Lerp(StaticConst.MIN_DB, StaticConst.MAX_DB, value);
-        if (PlayerPrefs.GetInt(StaticStringUI.AudioString.SFXString.TOGGLE_SFX, 1) == 0)
+        if (PlayerPrefs.GetInt(StaticStringUI.AudioString.MusicString.TOGGLE_MUSIC, 1) == 0)
         {
             dB = StaticConst.MIN_DB;
         }

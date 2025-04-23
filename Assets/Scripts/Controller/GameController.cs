@@ -58,9 +58,7 @@ public class GameController : MonoBehaviour
         tieText.SetActive(false);
         playerOneWinsText.SetActive(false);
         playerTwoWinsText.SetActive(false);
-        //undoButton.SetActive(true);
         gameOver = false;
-        //lastColumn = -1;
 
         turn = 0;
         playerTurnImage.SetActive(false);
@@ -76,8 +74,6 @@ public class GameController : MonoBehaviour
 
         float yValue = (float)(linesLeft * 1.9);
         float speed = (float)(linesLeft * 0.15F);
-
-        // Debug.Log(speed + " " + yValue + " " );
 
         AnimationCurve curve = AnimationCurve.Linear(0.0F, yValue, speed, 0);
         clip.SetCurve("", typeof(Transform), "localPosition.y", curve);
@@ -128,9 +124,9 @@ public class GameController : MonoBehaviour
     {
         int sum = 0;
 
-        sum += horizontalSearch(column, postitionOfToken, turn, false); // aduna celulele ocupate din dreapta
+        sum += horizontalSearch(column, postitionOfToken, turn, false);
         if (column > 0)
-            sum += horizontalSearch(column - 1, postitionOfToken - 1, turn, true); // aduna celulele ocupate din stanga
+            sum += horizontalSearch(column - 1, postitionOfToken - 1, turn, true);
 
         if (sum >= 4)
             return true;
@@ -246,7 +242,6 @@ public class GameController : MonoBehaviour
             playerOneWinsText.SetActive(true);
         else
             playerTwoWinsText.SetActive(true);
-        //undoButton.SetActive(false);
     }
 
     bool tie()
@@ -288,6 +283,7 @@ public class GameController : MonoBehaviour
             
             playerToken = Instantiate(player[turn], dots[postitionOfToken]);
             playerToken.SetActive(true);
+            SoundEffectMananger.Instance.PlaySound("turn");
 
             addAnimation(6 - tokensCount[column]);
 
@@ -304,7 +300,6 @@ public class GameController : MonoBehaviour
                 }
                 else
                 {
-                    //lastColumn = column;
                     changePlayer();
                 }
             }

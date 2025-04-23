@@ -14,7 +14,6 @@ public class MiniMaxAIEasy : MonoBehaviour
     private const int EMPTY = 0;
     public int[,] boardMiniMax;
 
-
     public void Awake()
     {
         if (Instance == null)
@@ -58,11 +57,8 @@ public class MiniMaxAIEasy : MonoBehaviour
         }
 
         // Tiến hành công việc khác sau khi in xong
-        // Chẳng hạn, bạn có thể làm gì đó sau khi in xong ma trận
         Debug.Log("Done printing the board!");
     }
-
-
 
     public int GetBestMove()
     {
@@ -75,7 +71,7 @@ public class MiniMaxAIEasy : MonoBehaviour
             {
                 int row = GetNextOpenRow(boardMiniMax, col);
                 boardMiniMax[row, col] = AI_PLAYER;
-                int score = Minimax(boardMiniMax, MAX_DEPTH, int.MinValue, int.MaxValue, false);
+                int score = Minimax(boardMiniMax, MAX_DEPTH, false); // Không dùng alpha, beta
                 boardMiniMax[row, col] = EMPTY;
 
                 if (score > bestScore)
@@ -88,11 +84,11 @@ public class MiniMaxAIEasy : MonoBehaviour
         return bestMove;
     }
 
-    private int Minimax(int[,] board, int depth, int alpha, int beta, bool isMaximizing)
+    private int Minimax(int[,] board, int depth, bool isMaximizing)
     {
         if (depth == 0 || IsTerminalNode(board))
             return EvaluateBoard(board);
-        
+
         if (isMaximizing)
         {
             int maxEval = int.MinValue;
@@ -102,12 +98,9 @@ public class MiniMaxAIEasy : MonoBehaviour
                 {
                     int row = GetNextOpenRow(board, col);
                     board[row, col] = AI_PLAYER;
-                    int eval = Minimax(board, depth - 1, alpha, beta, false);
+                    int eval = Minimax(board, depth - 1, false);
                     board[row, col] = EMPTY;
                     maxEval = Math.Max(maxEval, eval);
-                    alpha = Math.Max(alpha, eval);
-                    if (beta <= alpha)
-                        break;
                 }
             }
             return maxEval;
@@ -121,12 +114,9 @@ public class MiniMaxAIEasy : MonoBehaviour
                 {
                     int row = GetNextOpenRow(board, col);
                     board[row, col] = HUMAN_PLAYER;
-                    int eval = Minimax(board, depth - 1, alpha, beta, true);
+                    int eval = Minimax(board, depth - 1, true);
                     board[row, col] = EMPTY;
                     minEval = Math.Min(minEval, eval);
-                    beta = Math.Min(beta, eval);
-                    if (beta <= alpha)
-                        break;
                 }
             }
             return minEval;
@@ -136,13 +126,13 @@ public class MiniMaxAIEasy : MonoBehaviour
     private int EvaluateBoard(int[,] board)
     {
         // Viết hàm đánh giá điểm của bàn cờ, càng gần thắng thì điểm càng cao.
-        return new System.Random().Next(-100, 100); // Placeholder
+        return new System.Random().Next(-100, 100); // Placeholder, viết lại theo logic đánh giá của bạn
     }
 
     private bool IsTerminalNode(int[,] board)
     {
         // Kiểm tra có ai thắng hoặc bàn cờ đầy chưa.
-        return false; // Placeholder
+        return false; // Placeholder, viết lại logic kiểm tra điều kiện thắng thua
     }
 
     private bool IsValidMove(int[,] board, int col)

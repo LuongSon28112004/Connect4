@@ -11,7 +11,7 @@ public class MiniMaxAIMedium : MonoBehaviour
     private const int EMPTY = 0;
     private const int AI_PLAYER = 2;
     private const int HUMAN_PLAYER = 1;
-    private const int WINNING_SCORE = 1000000;
+    //private const int WINNING_SCORE = 1000000;
     public int[,] board;
     private int depth = 5; // Độ sâu của thuật toán Minimax
 
