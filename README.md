@@ -41,15 +41,23 @@
 ### ✅ Gameplay Mechanics
 - Hai người chơi lần lượt thực hiện nước đi (chế độ 2 người).
 - Luật chơi chuẩn của Connect 4 với chiến thắng theo 4 hàng liên tiếp.
-- Thông báo kết quả: **Win** hoặc **Draw** sau mỗi ván đấu.
+- Thông báo kết quả: **Win** hoặc **lost** sau mỗi ván đấu.
 - Hiển thị lượt đi hiện tại và cập nhật theo thời gian thực.
+
+### ✅ AI đánh tự động
+- chế độ đánh với máy gồm 3 cấp độ,easy,medium,hard
+- sử dụng thuật toán minimax
+
+### ✅ Chế độ đánh với người
+- mỗi lượt chơi sẽ có 15s để suy nghĩ
+- hết time mà không đánh thì sẽ thua
 
 ### ✅ Visual and UX
 - Giao diện đơn giản, dễ nhìn và thân thiện với người dùng.
 - Hiệu ứng rơi đĩa mượt mà.
 
 ### ✅ Sound and Music
-- Âm thanh khi thả đĩa và khi kết thúc trò chơi.
+- Âm thanh khi thả đĩa , âm thanh nhạc nền và âm thanh đếm ngược thời gian.
 - Có thể thêm nhạc nền nhẹ nhàng cho trải nghiệm tốt hơn.
 
 ---
