@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -86,12 +87,13 @@ public class GameController : MonoBehaviour
 
     private void addCountDownEvent()
     {
-        CountDownTimerPlayer_1 countDownTimerPlayer_1 =
-            gameCountDownController.Player1Timer.GetComponent<CountDownTimerPlayer_1>();
-        CountDownTimerPlayer_2 countDownTimerPlayer_2 =
-            gameCountDownController.Player2Timer.GetComponent<CountDownTimerPlayer_2>();
-        countDownTimerPlayer_1.OnTimeUp += () => gameOverFunction(1 - turn);
-        countDownTimerPlayer_2.OnTimeUp += () => gameOverFunction(1 - turn);
+        if (SceneManager.GetSceneByName("Connect4P_P").isLoaded)
+        {
+            CountDownTimerPlayer_1 countDownTimerPlayer_1 = gameCountDownController.Player1Timer.GetComponent<CountDownTimerPlayer_1>();
+            CountDownTimerPlayer_2 countDownTimerPlayer_2 = gameCountDownController.Player2Timer.GetComponent<CountDownTimerPlayer_2>();
+            countDownTimerPlayer_1.OnTimeUp += () => gameOverFunction(1 - turn);
+            countDownTimerPlayer_2.OnTimeUp += () => gameOverFunction(1 - turn);
+        }
     }
 
     void addAnimation(int linesLeft)
