@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 185236920}
   - component: {fileID: 185236919}
   m_Layer: 5
-  m_Name: btnRestore
+  m_Name: btnRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11422,7 +11422,7 @@ MonoBehaviour:
   playerOneWinsText: {fileID: 1106069718}
   playerTwoWinsText: {fileID: 764936531}
   playerTurnImage: {fileID: 1404415135}
-  tieText: {fileID: 1602742342}
+  tieText: {fileID: 566027683}
   tokensCount: 
 --- !u!114 &1782741556
 MonoBehaviour:

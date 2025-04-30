@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,9 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController Instance { get; private set; }
+
+    [Header("Game Settings")]
     public Transform[] dots;
     public GameObject[] player;
     public GameObject gameOverPanel,
@@ -20,12 +24,26 @@ public class GameController : MonoBehaviour
     GameObject playerToken;
     int turn; //lastColumn
 
-    public int Turn{
-        get{ return turn; }
+    [SerializeField]
+    private GameCountDownController gameCountDownController;
+
+    public int Turn
+    {
+        get { return turn; }
     }
+
+    public event Action<int> OnTurnChangePlayer;
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
         this.LoadDots();
         this.resetToken();
     }
@@ -45,7 +63,7 @@ public class GameController : MonoBehaviour
     public void resetToken()
     {
         tokensCount = new int[7];
-        for(int i = 0 ; i < 7 ; i++)
+        for (int i = 0; i < 7; i++)
         {
             tokensCount[i] = 0;
         }
@@ -53,7 +71,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-
         gameOverPanel.SetActive(false);
         tieText.SetActive(false);
         playerOneWinsText.SetActive(false);
@@ -61,7 +78,20 @@ public class GameController : MonoBehaviour
         gameOver = false;
 
         turn = 0;
+        OnTurnChangePlayer?.Invoke(turn);
         playerTurnImage.SetActive(false);
+
+        addCountDownEvent();
+    }
+
+    private void addCountDownEvent()
+    {
+        CountDownTimerPlayer_1 countDownTimerPlayer_1 =
+            gameCountDownController.Player1Timer.GetComponent<CountDownTimerPlayer_1>();
+        CountDownTimerPlayer_2 countDownTimerPlayer_2 =
+            gameCountDownController.Player2Timer.GetComponent<CountDownTimerPlayer_2>();
+        countDownTimerPlayer_1.OnTimeUp += () => gameOverFunction(1 - turn);
+        countDownTimerPlayer_2.OnTimeUp += () => gameOverFunction(1 - turn);
     }
 
     void addAnimation(int linesLeft)
@@ -120,6 +150,7 @@ public class GameController : MonoBehaviour
         }
         return 0;
     }
+
     bool horizontal(int column, int postitionOfToken, int turn)
     {
         int sum = 0;
@@ -231,6 +262,19 @@ public class GameController : MonoBehaviour
         return false;
     }
 
+    void gameOverFunction(int turnTemp)
+    {
+        gameOver = true;
+        gameOverPanel.SetActive(true);
+        gameOverPanel.transform.SetAsLastSibling();
+        if (turnTemp == -1)
+            tieText.SetActive(true);
+        else if (turnTemp == 0)
+            playerOneWinsText.SetActive(true);
+        else
+            playerTwoWinsText.SetActive(true);
+    }
+
     void gameOverFunction()
     {
         gameOver = true;
@@ -255,7 +299,8 @@ public class GameController : MonoBehaviour
     void changePlayer()
     {
         turn = 1 - turn;
-        playerTurnImage.SetActive(!playerTurnImage.activeInHierarchy); 
+        OnTurnChangePlayer?.Invoke(turn);
+        playerTurnImage.SetActive(!playerTurnImage.activeInHierarchy);
     }
 
     public void arrow(int column)
@@ -267,8 +312,10 @@ public class GameController : MonoBehaviour
             {
                 if (MiniMaxAIEasy.Instance != null)
                 {
-                    if (turn == 0) MiniMaxAIEasy.Instance.boardMiniMax[5 - tokensCount[column], column] = 1;
-                    else if (turn == 1) MiniMaxAIEasy.Instance.boardMiniMax[5 - tokensCount[column], column] = 2;
+                    if (turn == 0)
+                        MiniMaxAIEasy.Instance.boardMiniMax[5 - tokensCount[column], column] = 1;
+                    else if (turn == 1)
+                        MiniMaxAIEasy.Instance.boardMiniMax[5 - tokensCount[column], column] = 2;
                 }
             }
             else if (LevelAIControllder.Instance.LevelAI == 1)
@@ -276,25 +323,28 @@ public class GameController : MonoBehaviour
                 Debug.Log("AI");
                 if (MiniMaxAIMedium.Instance != null)
                 {
-                    if (turn == 0) MiniMaxAIMedium.Instance.board[5 - tokensCount[column], column] = 1;
-                    else if (turn == 1) MiniMaxAIMedium.Instance.board[5 - tokensCount[column], column] = 2;
+                    if (turn == 0)
+                        MiniMaxAIMedium.Instance.board[5 - tokensCount[column], column] = 1;
+                    else if (turn == 1)
+                        MiniMaxAIMedium.Instance.board[5 - tokensCount[column], column] = 2;
                 }
             }
-            
+
             playerToken = Instantiate(player[turn], dots[postitionOfToken]);
             playerToken.SetActive(true);
             SoundEffectMananger.Instance.PlaySound("turn");
 
             addAnimation(6 - tokensCount[column]);
 
-            if (checkIfGameOver(column, postitionOfToken, turn)) 
+            if (checkIfGameOver(column, postitionOfToken, turn))
                 gameOverFunction();
             else
             {
-                tokensCount[column]++; 
+                tokensCount[column]++;
 
                 if (tie())
                 {
+                    Debug.Log("tie");
                     turn = -1;
                     gameOverFunction();
                 }

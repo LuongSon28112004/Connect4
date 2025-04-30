@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: SoundEffectMusic
   m_GUID: ce77cf6b61bad894a86a23ff2527e4bb
   m_SerializeEntries:
+  - m_GUID: 0fae59491b4027e4d90ca4e8420f14e3
+    m_Address: Assets/Sound/countdown.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SoundEffect
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60a2c2b5bdb648145b8710bc8ead0e56
     m_Address: Assets/Sound/turn.mp3
     m_ReadOnly: 0
