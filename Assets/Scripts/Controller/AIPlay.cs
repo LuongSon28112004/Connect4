@@ -125,7 +125,7 @@ public class AIPlay : MonoBehaviour
         {
             this.disableClickButton();
             count = 0;
-            Invoke(nameof(AIClickButton), 3f);
+            Invoke(nameof(AIClickButton), 1f);
         }
     }
 
@@ -141,9 +141,10 @@ public class AIPlay : MonoBehaviour
             Debug.Log("LevelAIControllder.Instance.LevelAI == 1");
             randomValue = MiniMaxAIMedium.Instance.GetBestMove();
         }
-        else
+        else 
         {
-            randomValue = Random.Range(0, 7);
+            Debug.Log("LevelAIControllder.Instance.LevelAI == 2");
+            randomValue = MiniMaxAIHard.Instance.GetBestMove();
         }
         Button btn = Arrows[randomValue].GetComponent<Button>();
         if (btn != null)

@@ -331,6 +331,17 @@ public class GameController : MonoBehaviour
                         MiniMaxAIMedium.Instance.board[5 - tokensCount[column], column] = 2;
                 }
             }
+            else if (LevelAIControllder.Instance.LevelAI == 2)
+            {
+                Debug.Log("AI Hard");
+                if (MiniMaxAIHard.Instance != null)
+                {
+                    if (turn == 0)
+                        MiniMaxAIHard.Instance.board[5 - tokensCount[column], column] = 1;
+                    else if (turn == 1)
+                        MiniMaxAIHard.Instance.board[5 - tokensCount[column], column] = 2;
+                }
+            }
 
             playerToken = Instantiate(player[turn], dots[postitionOfToken]);
             playerToken.SetActive(true);
