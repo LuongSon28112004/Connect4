@@ -22,10 +22,11 @@
 ---
 
 ## 🎬 Video demo
-🔗 *[Thêm liên kết YouTube tại đây]*
+🔗 [Xem video demo trên YouTube](https://studio.youtube.com/channel/UC6xGVdKQ0RBNcPymXjbSo9w/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D)
 
 ## 📥 Tải xuống
-🔗 *[Thêm liên kết tải APK tại đây]*
+🔗 [Link Tải File APK](https://drive.google.com/file/d/12k0lMrrOCbr_KNZjxBLgjaHfiE5MxeB0/view?usp=sharing)
+
 
 ---
 
